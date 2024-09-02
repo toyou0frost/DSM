@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    font-family: 'BMDOHYEON';
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+    cursor: pointer;
+}
+.BLUE_BTN{
+    color: white;
+    border-radius: 3px;
+    background-color: rgba(17, 54, 128, 0.7);
+    border: none;
+    padding: 3px 10px;
+}
+.BLUE_BTN:hover{
+    background-color: rgba(17, 54, 128, 0.8);
+
+}
+.BLUE_BTN:active{
+    background-color: rgba(17, 54, 128, 0.9);
+}
+.RED_BTN{
+    color: white;
+    border-radius: 3px;
+    background-color: rgba(128, 17, 17, 0.7);
+    border: none;
+    padding: 3px 10px;
+}
+.RED_BTN:hover{
+    background-color: rgba(128, 17, 17, 0.8);
+
+}
+.RED_BTN:active{
+    background-color: rgba(128, 17, 17, 0.9);
+}
+.GREEN_BTN{
+    color: white;
+    border-radius: 3px;
+    background-color: rgba(17, 128, 56, 0.7);
+    border: none;
+    padding: 3px 10px;
+}
+.GREEN_BTN:hover{
+    background-color: rgba(17, 128, 56, 0.8);
+
+}
+.GREEN_BTN:active{
+    background-color: rgba(17, 128, 56, 0.9);
+}
+.GRAY_TBL{
+    border-collapse: separate; 
+    border-spacing: 0;
+}
+.GRAY_TBL th{
+    background-color: #eee;
+}
+.GRAY_TBL th,
+.GRAY_TBL td{
+    border: 1px solid silver;
+    padding: 1px 10px;
+    text-align: center;
+}
+.BLACK_TBL th{
+    background-color: rgb(0, 0, 56);
+    color: white;
+}
+.BLACK_TBL th input{
+    color: white;
+}
+.BLACK_TBL th,
+.BLACK_TBL td{
+    border: 1px solid silver;
+    padding: 3px 10px;
+    text-align: center;
+}
+.SILVER_HEADER{
+    border-bottom: 1px solid silver;
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.SILVER_HEADER > h3{
+    flex: 1;
+}
+.SILVER_HEADER > div{
+    margin-bottom: 10px;
+    flex: 1;
+}
+.SILVER_HEADER > div > div{
+    display: flex;
+    justify-content: right;
+}
+.LABEL_INPUT{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+.ellipsis-text{
+    width: 100px; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.flex-display{
+    display: flex;
+}
+.flex-right{
+    display: flex;
+    justify-content: flex-end;
+}
+.flex-left{
+    display: flex;
+    justify-content: flex-start;
+}
+.flex-top{
+    display: flex;
+    align-items: flex-start;
+}
+.flex-bottom{
+    display: flex;
+    align-items: flex-end;
+}
+.none-display{
+    display: none;
+}
+.block-display{
+    display: block;
+}
+.inline-display{
+    display: inline;
+}
+.none-border{
+    border: none;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.silver-border{
+    border: 1px solid silver;
+}
+.radius-border{
+    border-radius: 5px;
+}
+.direction-column{
+    flex-direction: column;
+}
+.gray-color{
+    color: #ccc;
+}
+.red-color{
+    color: red;
+}
+.blue-color{
+    color: blue;
+}
+.gray-hover{
+    cursor: pointer;
+}
+.gray-hover:hover{
+    background-color: #eee;
+}
+.sticky-header{
+    position: sticky;
+    top: 0;
+}

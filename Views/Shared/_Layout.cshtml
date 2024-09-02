@@ -3,42 +3,84 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DSM</title>
+    <title>다사모</title>
+    <link rel="icon" href="/images/MainIconNobg.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DSM.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DSM</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+        <nav>
+            <div class="Layout_Header">
+                <div>
+                    <img src="/images/MainIconNobg.png" alt="" width="50px">
+                </div>
+                <div>
+                    <ul>
+                        <li>대학생활도구</li>
+                        <li>자료실</li>
+                        <li>커뮤니티</li>
                     </ul>
+                    <input type="button" value="Sign In">
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="Layout_Main">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - DSM - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container Layout_Footer">
+            <div>
+                <img src="/images/MainIconNobg.png" alt="" width="50px">
+                <div>
+                    <img src="/images/XIcon.png" alt="X" width="50px">
+                    <img src="/images/InstaIcon.png" alt="Insta" width="50px">
+                    <img src="/images/YoutubeIcon.png" alt="YouTube" width="50px">
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <li><h3>대학생활 도구</h3></li>
+                    <li>시간표</li>
+                    <li>식단표</li>
+                    <li>과제 관리</li>
+                    <li>학기별 학점 계산기</li>
+                    <li>졸업 학접 계산기</li>
+                    <li>수강신청 시뮬레이션</li>
+                    <li>시간표 작성 계획</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><h3>자료실</h3></li>
+                    <li>시험족보</li>
+                    <li>PPT 템플릿</li>
+                    <li>논문 템플릿</li>
+                    <li>eBook 교과서</li>
+                    <li>전공 교수 평점</li>
+                    <li>교양 교수 평점</li>
+                    <li>학생 평점</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><h3>커뮤니티</h3></li>
+                    <li>메모장</li>
+                    <li>X</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                    <li>Laftel</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
