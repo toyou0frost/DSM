@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>다사모</title>
-    <link rel="icon" href="/images/MainIconNobg.ico">
+    <link rel="icon" href="/images/MainIcon.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LayoutMobile.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DSM.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -16,10 +17,14 @@
         <nav>
             <div class="Layout_Header">
                 <div>
-                    <img src="/images/MainIconNobg.png" alt="" width="50px">
+                    <img src="/images/MainIcon.png" alt="" width="50px" style="margin-right: 7px;">
+                    <h5>다사모</h5>
                 </div>
-                <div>
-                    <ul>
+                <input class="Layout_Side_Menu" type="checkbox" id="Layout_Side_Menu"/>
+                <label class="Layout_Hamb" for="Layout_Side_Menu"><span class="Layout_Hamb_Line"></span></label>
+                
+                <div class="Layout_Nav">
+                    <ul class="Layout_Menu">
                         <li>
                             <ul>
                             <span>대학생활도구</span>
@@ -75,7 +80,7 @@
     <footer class="border-top footer text-muted">
         <div class="Layout_Footer">
             <div>
-                <img src="/images/MainIconNobg.png" alt="" width="50px">
+                <img src="/images/MainIcon.png" alt="" width="50px">
                 <div>
                     <img src="/images/XIcon.png" alt="X" width="30px" style="margin: 7px;">
                     <img src="/images/InstaIcon.png" alt="Insta" width="30px" style="margin: 7px;">

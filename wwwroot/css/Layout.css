@@ -1,108 +1,132 @@
-.Layout_Header{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding: 1%;
-    border-bottom: 1px solid gray;
-}
-.Layout_Header > div:nth-child(1){
-    display: flex;
-    align-items: center;
-    width: 10%;
-}
-.Layout_Header > div:nth-child(2){
-    display: flex;
-    align-items: center;
-    width: 90%;
-}
-.Layout_Header div > ul{
-    width: 100%;
-    list-style: none;
-    display: flex;
+*{
     margin: 0;
-    justify-content: flex-end;
-}
-.Layout_Header div > ul li{
-    margin-right: 50px;
-}
-.Layout_Header li > ul{
     padding: 0;
-    width: 100%;
-    list-style: none;
-    margin: 0;
+    box-sizing: border-box;
 }
-.Layout_Header li > ul div li{
-    margin: 0;
-}
-.Layout_Header li > ul div{
-    user-select: none;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    position: absolute;
-    margin-right: 50px;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease; 
-}
-.Layout_Header li > ul span{
-    user-select: none;
-    cursor: pointer;
-}
-.Layout_Header li > ul span:hover ~ div,
-.Layout_Header li > ul span ~ div:hover{
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s ease, visibility 0.3s ease; 
-}
-.Layout_Header li > ul span ~ div > li{
-    padding: 5px;
-    cursor: pointer;
-}
-.Layout_Header li > ul span ~ div > li:hover{
-    background-color: #eee;
-    border-radius: 5px;
-}
-.Layout_Main{
-    background-color: #eee;
-    width: 100%;
-}
-.Layout_Footer{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding: 1%;
-    margin-top: 5%;
-}
-.Layout_Footer h3{
-    user-select: none;
-}
-.Layout_Footer img,
-.Layout_Footer span{
-    cursor: pointer;
-    user-select: none;
-    padding: 5px;
-}
-.Layout_Footer span:hover{
-    background-color: #ccc;
-    border-radius: 5px;
-}
-.Layout_Footer > div:nth-child(1){
-    width: 70%;
-}
-.Layout_Footer div{
-    width: 100%;
-}
-.Layout_Footer ul{
-    list-style: none;
-}
-.Layout_Footer ul h3{
-    font-weight: bold;
-}
-.Layout_Footer ul li{
-    font-size: 0.9em;
-    margin: 5%;
+
+:root{
+    --white: #f0f0f0;
+    --black: #36383F;
+    --gray: #dee2e6;
+} /* variables*/
+
+@media (min-width: 768px){
+    .Layout_Header > div > h5{
+        margin-bottom: 0;
+    }
+    .Layout_Header{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding: 1%;
+        box-shadow: 1px 1px 5px 0px var(--gray);
+    }
+    .Layout_Header > div:nth-child(1){
+        display: flex;
+        align-items: center;
+        width: 10%;
+    }
+    .Layout_Header > div:nth-child(2){
+        display: flex;
+        align-items: center;
+        width: 90%;
+    }
+    .Layout_Header div > ul{
+        width: 100%;
+        list-style: none;
+        display: flex;
+        margin: 0;
+        justify-content: flex-end;
+    }
+    .Layout_Header div > ul li{
+        margin-right: 50px;
+    }
+    .Layout_Header li > ul{
+        padding: 0;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+    }
+    .Layout_Header li > ul div li{
+        margin: 0;
+    }
+    .Layout_Header li > ul div{
+        user-select: none;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+        position: absolute;
+        margin-right: 50px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease; 
+    }
+    .Layout_Header li > ul span{
+        user-select: none;
+        cursor: pointer;
+    }
+    .Layout_Header li > ul span:hover ~ div,
+    .Layout_Header li > ul span ~ div:hover{
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.3s ease, visibility 0.3s ease; 
+    }
+    .Layout_Header li > ul span ~ div > li{
+        padding: 5px;
+        cursor: pointer;
+    }
+    .Layout_Header li > ul span ~ div > li:hover{
+        background-color: #eee;
+        border-radius: 5px;
+    }
+    .Layout_Main{
+        background-color: #f0f0f0;
+        width: 100%;
+    }
+    .Layout_Footer{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding: 1%;
+        margin-top: 5%;
+    }
+    .Layout_Footer h3{
+        user-select: none;
+    }
+    .Layout_Footer img,
+    .Layout_Footer span{
+        cursor: pointer;
+        user-select: none;
+        padding: 5px;
+    }
+    .Layout_Footer span:hover{
+        background-color: #ccc;
+        border-radius: 5px;
+    }
+    .Layout_Footer > div:nth-child(1){
+        width: 70%;
+    }
+    .Layout_Footer div{
+        width: 100%;
+    }
+    .Layout_Footer ul{
+        list-style: none;
+    }
+    .Layout_Footer ul h3{
+        font-weight: bold;
+    }
+    .Layout_Footer ul li{
+        font-size: 0.9em;
+        margin: 5%;
+    }
+    .Layout_Side_Menu{
+        display: none;
+    }
+    .Layout_Nav{
+        display: flex;
+        align-items: center;
+    }
 }
