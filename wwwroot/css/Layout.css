@@ -11,7 +11,11 @@
 } /* variables*/
 
 @media (min-width: 768px){
-    .Layout_Header > div > h5{
+    .Layout_Footer > div:nth-child(1) > div:nth-child(1){
+        display: flex;
+        align-items: center;
+    }
+    h5{
         margin-bottom: 0;
     }
     .Layout_Header{
