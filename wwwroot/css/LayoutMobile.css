@@ -19,6 +19,14 @@
         padding: 3%;
         border-radius: 5px;
     }
+    .Layout_Nav > div > input:last-child:hover{
+        color: var(--white);
+        background-color: #4A4C54;
+    }
+    .Layout_Nav > div > input:last-child:active{
+        color: var(--white);
+        background-color: #2B2D33;
+    }
     .Layout_Nav > div > input:hover{
         background-color: var(--gray);
         border: 1px solid var(--gray);

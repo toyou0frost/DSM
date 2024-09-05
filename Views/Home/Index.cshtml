@@ -1,3 +1,85 @@
-﻿<div style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 100px;">
-    <h1>다사모</h1>
+﻿<div>
+    <div onload="updateTime()" class="Index_Main">
+        <h1>다사모</h1>
+        <p style="font-size: 1.1em; color: #686a76;"><span id="currentDate"></span></p>
+        <p style="font-size: 1.1em; color: #686a76;"><span id="currentTime"></span></p>
+        <p style="font-size: 1.1em; color: #686a76;"><span id="daysPassed"></span></p>
+    </div>
+    <div class="Index_Splide">
+        <div id="image-slider" class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <img src="/images/IndexSplide/IndexSplideImg01.jpg">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="/images/IndexSplide/IndexSplideImg02.jpg">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="/images/IndexSplide/IndexSplideImg03.jpg">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="/images/IndexSplide/IndexSplideImg04.jpg">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="/images/IndexSplide/IndexSplideImg06.jpg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="Index_Paly_Pause">
+            <button class="play-pause-button">
+                <i>P</i>
+                <i>l</i>
+                <i>a</i>
+                <i>y</i>
+                <i>use</i>
+            </button>
+            <!-- dribbble - twitter -->
+        </div>
+    </div>
 </div>
+
+<script>
+    let pasue = false;
+    const startDate = new Date('2024-06-25');
+
+    function TOGGLE_PLAY_PASUE_FUNC(toggle){
+        switch (toggle){
+            case "PLAY": pasue = false;
+            break;
+            case "PAUSE": pasue = true;
+            break;
+            default: return;
+        }
+    }
+
+    function updateTime() {
+        const now = new Date();
+        
+        const dateString = now.toLocaleDateString();
+        const timeString = now.toLocaleTimeString();
+
+        const timeDifference = now - startDate; 
+        const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+        // HTML에 표시
+        document.getElementById('currentDate').textContent = dateString;
+        document.getElementById('currentTime').textContent = timeString;
+        document.getElementById('daysPassed').textContent = "♡ - " + daysPassed + "일";
+    }
+
+    setInterval(updateTime, 1000);   
+    document.addEventListener( 'DOMContentLoaded', function () {
+        new Splide( '#image-slider', {
+            type   : 'loop',
+            drag   : 'free',
+            focus  : 'center',
+            perPage: 3,  
+            autoScroll: {
+                speed: 1,
+            },
+        } ).mount();
+    } );
+    setInterval(() => {if(!pasue){document.getElementsByClassName("splide__arrow--next")[0].click()}}, 3000)
+</script>

@@ -11,6 +11,23 @@
 } /* variables*/
 
 @media (min-width: 768px){
+    .Layout_Nav > div > input{
+        background-color: var(--black);
+        border: 1px solid var(--gray);
+        color: var(--white);
+        padding: 3%;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 5px;
+    }
+    .Layout_Nav > div > input:last-child:hover{
+        color: var(--white);
+        background-color: #4A4C54;
+    }
+    .Layout_Nav > div > input:last-child:active{
+        color: var(--white);
+        background-color: #2B2D33;
+    }
     .Layout_Footer > div:nth-child(1) > div:nth-child(1){
         display: flex;
         align-items: center;

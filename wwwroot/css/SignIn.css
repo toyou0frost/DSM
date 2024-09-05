@@ -1,0 +1,53 @@
+:root{
+    --white: #f0f0f0;
+    --black: #36383F;
+    --gray: #dee2e6;
+}
+.SignIn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.SignIn_Main > div:not(:nth-child(3)){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SignIn_Main > div:nth-child(3){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.SignIn_Main > div:nth-child(3) > *{
+    padding-left: 5px;
+    border-radius: 5px;
+}
+.SignIn_Main > div:nth-child(3) > input{
+    width: 250px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
+.SignIn_Main > div:nth-child(3) > input:nth-child(2){
+    margin-bottom: 20px;
+}
+.SignIn_Main > div:nth-child(3) > input:last-child{
+    color: var(--white);
+    background-color: var(--black);
+}
+.SignIn_Main > div:nth-child(3) > input:last-child:hover{
+    color: var(--white);
+    background-color: #4A4C54;
+}
+.SignIn_Main > div:nth-child(3) > input:last-child:active{
+    color: var(--white);
+    background-color: #2B2D33;
+}
