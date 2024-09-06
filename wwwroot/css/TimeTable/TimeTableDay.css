@@ -1,3 +1,6 @@
+.TimeTable_Day{
+    padding: 3%;
+}
 .TimeTable_Day_Card_Container{
     display: flex;
     flex-wrap: wrap;

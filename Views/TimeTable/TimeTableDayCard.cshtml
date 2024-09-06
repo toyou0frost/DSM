@@ -1,9 +1,10 @@
-@{
-    var TimeTableIndex = ViewData["TimeTableIndex"] as int? ?? 0;
-}
+
 
 <div class="TimeTable_Day_Card TimeTable_Day_Card_Drag" draggable="true">
-    <h3>@TimeTableIndex 교시</h3>
-    <p>@Model.SubjectName</p>
-    <p>@Model.ProfessorName</p>
+    <div style="display: flex; width: 100%;">
+        <h3>@Model.Time</h3>
+        <img src="/images/IndexSplide/IndexSplideImg05.jpg" alt="" width="20px" height="20px" style="object-fit: cover; border-radius: 10px; margin-left: 7px;">
+    </div>
+    <p>@Model.Period</p>
+    <p>@Model.Memo</p>
 </div>

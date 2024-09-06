@@ -1,26 +1,23 @@
 @model List<TIMETABLE_CLS>
 
 <div>
-    <div class="Day">
+    <div class="TimeTable_Day">
         <div>
-            <span>일일 시간표</span>
+            <span style="margin-left: 1%;">일일 시간표</span>
             <span class="DateString"></span>
             <div class="TimeTable_Day_Card_Container">
                 @for (int i = 0; i < Model.Count; i++){
-                    @Html.Partial("TimeTableDayCard", Model[i], new ViewDataDictionary(ViewData) { { "TimeTableIndex", i + 1 } })
+                    @Html.Partial("TimeTableDayCard", Model[i])
                 }
-                <div class="TimeTable_Day_Card">
+                <div class="TimeTable_Day_Card Day_Card_Add">
                     <p>&nbsp;</p>
                     <h3>+</h3>
                     <p>&nbsp;</p>
                 </div>
             </div>
         </div>
-        <div>
-
-        </div>
     </div>
-    <div class="Week">
+    <div class="TimeTable_Week">
 
     </div>
 </div>
