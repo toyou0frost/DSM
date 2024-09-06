@@ -18,7 +18,20 @@
         </div>
     </div>
     <div class="TimeTable_Week">
-
+        <div>
+            <span style="margin-left: 1%;">주간 시간표</span>
+            <span class="WeekString"></span>
+            <div class="TimeTable_Day_Card_Container">
+                @for (int i = 0; i < Model.Count; i++){
+                    @Html.Partial("TimeTableDayCard", Model[i])
+                }
+                <div class="TimeTable_Day_Card Day_Card_Add">
+                    <p>&nbsp;</p>
+                    <h3>+</h3>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -26,6 +39,20 @@
     const now = new Date();
     const dateString = now.toLocaleDateString();
     document.getElementsByClassName("DateString")[0].innerText = dateString;
+
+    const month = now.getMonth();
+    const year = now.getFullYear();
+
+    const firstDayOfMonth = new Date(year, month, 1);
+    const firstDayOfMonthDay = firstDayOfMonth.getDay();
+    const daysSinceStartOfMonth = Math.floor((now - firstDayOfMonth) / (24 * 60 * 60 * 1000));
+    const weekNumber = Math.ceil((daysSinceStartOfMonth + firstDayOfMonthDay + 1) / 7);
+
+    const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월",
+                        "7월", "8월", "9월", "10월", "11월", "12월"];
+    const monthName = monthNames[month];
+
+    document.getElementsByClassName("WeekString")[0].innerText = monthNames[month] + weekNumber + "주차";
 
     const cards = document.querySelectorAll('.TimeTable_Day_Card_Drag');
     const container = document.querySelector('.TimeTable_Day_Card_Container');

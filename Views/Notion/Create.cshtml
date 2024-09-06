@@ -1,0 +1,16 @@
+@model BOARD_POST_CLS
+
+<h1>새 글 작성</h1>
+
+<form asp-action="Create">
+    <div>
+        <label for="Title">제목</label>
+        <input type="text" id="Title" name="Title" value="@Model.Title" required />
+    </div>
+    <div>
+        <label for="Content">내용</label>
+        <textarea id="Content" name="Content">@Model.Content</textarea>
+    </div>
+    <button type="submit">작성하기</button>
+</form>
+
