@@ -1,0 +1,20 @@
+.TimeTable_Day_Card{
+    width: 31%;
+    border: 1px solid var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 0.9em;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s;
+}
+.TimeTable_Day_Card:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+}

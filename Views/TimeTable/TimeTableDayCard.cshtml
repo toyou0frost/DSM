@@ -1,0 +1,9 @@
+@{
+    var TimeTableIndex = ViewData["TimeTableIndex"] as int? ?? 0;
+}
+
+<div class="TimeTable_Day_Card" draggable="true">
+    <h3>@TimeTableIndex 교시</h3>
+    <p>@Model.SubjectName</p>
+    <p>@Model.ProfessorName</p>
+</div>

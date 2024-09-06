@@ -1,0 +1,107 @@
+@model List<TIMETABLE_CLS>
+
+<div>
+    <div class="Day">
+        <div>
+            <span>일일 시간표</span>
+            <span class="DateString"></span>
+            <div class="TimeTable_Day_Card_Container">
+                @for (int i = 0; i < Model.Count; i++){
+                    @Html.Partial("TimeTableDayCard", Model[i], new ViewDataDictionary(ViewData) { { "TimeTableIndex", i + 1 } })
+                }
+                <div class="TimeTable_Day_Card">
+                    <p>&nbsp;</p>
+                    <h3>+</h3>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <div class="Week">
+
+    </div>
+</div>
+
+<script>
+    const now = new Date();
+    const dateString = now.toLocaleDateString();
+    document.getElementsByClassName("DateString")[0].innerText = dateString;
+
+    const cards = document.querySelectorAll('.TimeTable_Day_Card');
+    const container = document.querySelector('.TimeTable_Day_Card_Container');
+
+    let draggedCard = null;
+    let initialX, initialY, offsetX = 0, offsetY = 0;
+
+    cards.forEach(card => {
+    card.addEventListener('dragstart', (e) => {
+        draggedCard = card;
+        setTimeout(() => {
+        card.style.display = 'none';
+        }, 0);
+    });
+
+    card.addEventListener('dragend', () => {
+        setTimeout(() => {
+        draggedCard.style.display = 'flex';
+        draggedCard = null;
+        }, 0);
+    });
+
+    card.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    card.addEventListener('dragenter', (e) => {
+        e.preventDefault();
+        if (card !== draggedCard) {
+        card.style.border = '2px dashed #000';
+        }
+    });
+
+    card.addEventListener('dragleave', () => {
+        card.style.border = 'none';
+    });
+
+    card.addEventListener('drop', () => {
+        card.style.border = 'none';
+        if (card !== draggedCard) {
+        container.insertBefore(draggedCard, card);
+        }
+    });
+    card.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        draggedCard = card;
+        const touch = e.touches[0];
+        initialX = touch.clientX;
+        initialY = touch.clientY;
+        offsetX = draggedCard.offsetLeft;
+        offsetY = draggedCard.offsetTop;
+        draggedCard.style.position = 'absolute';
+        draggedCard.style.zIndex = '1000';
+        draggedCard.style.left = `${offsetX}px`;
+        draggedCard.style.top = `${offsetY}px`;
+    });
+
+    // 터치 이동 (모바일)
+    card.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const moveX = touch.clientX - initialX;
+        const moveY = touch.clientY - initialY;
+        draggedCard.style.left = `${offsetX + moveX}px`;
+        draggedCard.style.top = `${offsetY + moveY}px`;
+    });
+
+    // 터치 끝 (모바일)
+    card.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        draggedCard.style.position = 'static';
+        draggedCard.style.zIndex = 'auto';
+        draggedCard = null;
+    });
+    });
+</script>
