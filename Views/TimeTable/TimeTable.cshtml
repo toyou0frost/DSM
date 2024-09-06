@@ -30,7 +30,7 @@
     const dateString = now.toLocaleDateString();
     document.getElementsByClassName("DateString")[0].innerText = dateString;
 
-    const cards = document.querySelectorAll('.TimeTable_Day_Card');
+    const cards = document.querySelectorAll('.TimeTable_Day_Card_Drag');
     const container = document.querySelector('.TimeTable_Day_Card_Container');
 
     let draggedCard = null;
@@ -98,9 +98,32 @@
 
     // 터치 끝 (모바일)
     card.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        draggedCard.style.position = 'static';
-        draggedCard.style.zIndex = 'auto';
+    e.preventDefault();
+    draggedCard.style.position = 'static';
+    draggedCard.style.zIndex = 'auto';
+    
+    // 터치 위치에서 가장 가까운 카드를 찾기 위한 로직
+    let closestCard = null;
+    let closestDistance = Number.MAX_SAFE_INTEGER;
+    
+    cards.forEach(otherCard => {
+        if (otherCard !== draggedCard) {
+            const rect = otherCard.getBoundingClientRect();
+            const distance = Math.hypot(e.changedTouches[0].clientX - rect.left, e.changedTouches[0].clientY - rect.top);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCard = otherCard;
+            }
+        }
+    });
+
+    // 가까운 카드 앞에 드래그된 카드 삽입
+        if (closestCard) {
+            container.insertBefore(draggedCard, closestCard);
+        } else {
+            container.appendChild(draggedCard);
+        }
+        
         draggedCard = null;
     });
     });
