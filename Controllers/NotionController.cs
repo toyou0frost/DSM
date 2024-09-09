@@ -1,34 +1,42 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DSM.Models;
 
-namespace DSM.Controllers;
-
-public class NotionController : Controller
+namespace DSM.Controllers
 {
-    private readonly ILogger<NotionController> _logger;
+    public class NotionController : Controller
+    {
+        private readonly NotionService _notionService;
 
-    public NotionController(ILogger<NotionController> logger)
-    {
-        _logger = logger;
-    }
-    public async Task<IActionResult> Create(BOARD_POST_CLS post)
-    {
-        if (ModelState.IsValid)
+        public NotionController(NotionService notionService)
         {
-            // Notion에 자료 이식
-            var notionService = new NotionService();
-            await notionService.AddPageToNotion(post.Title, post.Content);
-            Console.WriteLine(post.Content);
-            return RedirectToAction("Index","Home");
+            _notionService = notionService;
         }
-        return View(post);
-    }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPage(BOARD_POST_CLS BOARD_POST_CLS)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Create", BOARD_POST_CLS);
+            }
+
+            try
+            {
+                await _notionService.AddPageToNotion(BOARD_POST_CLS.Title, BOARD_POST_CLS.Content);
+                ViewBag.Message = "Page successfully added to Notion!";
+                return View("Create", new BOARD_POST_CLS()); // Clear form after success
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = $"Error: {ex.Message}";
+                return View("Create", BOARD_POST_CLS);
+            }
+        }
     }
 }
-
