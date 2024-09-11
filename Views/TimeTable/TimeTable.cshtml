@@ -7,7 +7,7 @@
             <span class="DateString"></span>
             <div class="TimeTable_Day_Card_Container">
                 @for (int i = 0; i < Model.Count; i++){
-                    @Html.Partial("TimeTableDayCard", Model[i])
+                    @Html.Partial("TimeTableDayCard", Model[0][i])
                 }
                 <div class="TimeTable_Day_Card Day_Card_Add">
                     <p>&nbsp;</p>
@@ -21,14 +21,62 @@
         <div>
             <span style="margin-left: 1%;">주간 시간표</span>
             <span class="WeekString"></span>
-            <div class="TimeTable_Day_Card_Container">
-                @for (int i = 0; i < Model.Count; i++){
-                    @Html.Partial("TimeTableDayCard", Model[i])
-                }
-                <div class="TimeTable_Day_Card Day_Card_Add">
-                    <p>&nbsp;</p>
-                    <h3>+</h3>
-                    <p>&nbsp;</p>
+            <div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>일</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
+                </div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>월</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
+                </div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>화</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
+                </div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>수</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
+                </div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>목</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
+                </div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>금</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
+                </div>
+                <div class="TimeTable_Week_Card Week_Card_Add">
+                    <h3>토</h3>
+                    <div class="TimeTable_Week_Card_Container">
+                        @for (int i = 0; i < Model.Count; i++){
+                            @Html.Partial("TimeTableWeekCard", Model[i])
+                        }
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,13 +15,28 @@ public class TimeTableController : Controller
 
     public IActionResult TimeTable()
     {    
-        var TimeTableDay = new List<TIMETABLE_CLS>{
-            new TIMETABLE_CLS { Time = "2교시", Period = "10:10 ~ 11:00", Memo = "의료법 기초"},
-            new TIMETABLE_CLS { Time = "3교시", Period = "11:00 ~ 12:00", Memo = "의료법 기초"},
-            new TIMETABLE_CLS { Time = "4교시", Period = "12:00 ~ 12:50", Memo = "의료법 기초"},
-            new TIMETABLE_CLS { Time = "점심", Period = "13:00 ~ ", Memo = "식단표"},
-            new TIMETABLE_CLS { Time = "6교시", Period = "15:10 ~ 16:00", Memo = "말하기와 사고"},
-            new TIMETABLE_CLS { Time = "7교시", Period = "16:00 ~ 16:50", Memo = "말하기와 사고"},
+        string SQL = "SELECT * FROM TBL_BASE_TIMETABLE ORDER BY DAYS_CODE, START_TIME";
+        SQL_FUNC_CLS.GET_DATA_TABLE_FUNC(SQL, 1);
+
+        var Week_TimeTable = new TIMETABLE_CLS[7, 6];  // 7일 x 6교시
+        
+        for (int day = 0; day < 7; day++)
+        {
+            if(day == Convert.ToInt32(SQL_CLS.DT_1.Rows[day]["DAYS_CODE"])){
+                // for(int i = 0; i < ){
+                    Week_TimeTable[day, i] = new TIMETABLE_CLS
+                    {
+                        Time = SQL_CLS.DT_1.Rows[i][day].ToString(), 
+                        Period = "10:10 ~ 11:00", 
+                        Memo = "의료법 기초"
+                    };
+                }
+            }
+        }
+
+        var TimeTableDay = new TIMETABLE_WEEK_CLS
+        {
+            Week_TimeTable = Week_TimeTable
         };
 
         return View(TimeTableDay);

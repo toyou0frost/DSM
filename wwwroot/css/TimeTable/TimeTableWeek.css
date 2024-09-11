@@ -1,0 +1,9 @@
+.TimeTable_Week{
+    padding: 3%;
+}
+.TimeTable_Week_Card_Container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
